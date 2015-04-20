@@ -1,0 +1,91 @@
+<section class="mainWrapper" ng-model="station">
+	<div class="row">
+		<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12">
+			<div class="stationInfo">
+				<div class="infoHeader"><center><h1>{{station.address}}</h1></center></div>
+				
+				<center>
+			        <!--Display if Less then or equal to 5-->
+			        <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bikes <= 5">
+			          <div class="stationPanelContainer redContainer">
+			            <p>Bikes:</p>
+			             <h3>{{ station.available_bikes }}</h3>
+			          </div>
+			        </div>
+			        
+			        <!--Display if Less then or equal to 15 and greater then 5-->
+			        <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bikes <= 15 && station.available_bikes > 5">
+			          <div class="stationPanelContainer orangeContainer">
+			            <p>Bikes:</p>
+			             <h3>{{ station.available_bikes }}</h3>
+			          </div>
+			        </div>
+			        
+			        <!--Display if greater then 15-->
+			        <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bikes > 15">
+			          <div class="stationPanelContainer greenContainer">
+			            <p>Bikes:</p>
+			             <h3>{{ station.available_bikes }}</h3>
+			          </div>
+			        </div>
+			        
+			        <!--Display if Less then or equal to 5-->
+			        <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bike_stands <= 5">
+			          <div class="stationPanelContainer redContainer">
+			            <p>Spaces: </p>
+			            <h3>{{ station.available_bike_stands }}</h3>
+			          </div>
+			        </div>
+			        
+			        <!--Display if Less then or equal to 15 and greater then 5-->
+			        <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bike_stands <= 15 && station.available_bike_stands > 5">
+			          <div class="stationPanelContainer orangeContainer">
+			            <p>Spaces: </p>
+			            <h3>{{ station.available_bike_stands }}</h3>
+			          </div>
+			        </div>
+			        
+			        <!--Display if greater then 15-->
+			        <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bike_stands > 15">
+			          <div class="stationPanelContainer greenContainer">
+			            <p>Spaces: </p>
+			            <h3>{{ station.available_bike_stands }}</h3>
+			          </div>
+			        </div>
+
+			        <p>Last Updated: {{station.last_update | date:"hh:mm:ss a"}}</p>
+					
+					<div class="extraInfoContainer">
+						<div class="bankContainer" ng-if="station.banking == true "><h3>Banking: <span class="green">{{station.banking}}</span></h3></div>
+						<div class="bankContainer" ng-if="station.banking == false "><h3>Banking: <span class="red">{{station.banking}}</span></h3></div>
+						<div class="statusContainer" ng-if="station.status == 'OPEN' "><h3>Status: <span class="green">{{station.status}}</span></h3></div>
+						<div class="statusContainer" ng-if="station.status == 'CLOSED' "><h3>Status: <span class="red">{{station.status}}</span></h3></div>
+					</div>
+				</center>
+			</div>
+		</div>
+		
+		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+			<div class="mapContainer">
+				<ui-gmap-google-map center='map.center' zoom='map.zoom' pan='true'>
+					<ui-gmap-marker idKey='station.number' coords='marker.coords' icon='icon'>
+						<ui-gmap-window options="windowOptions" closeClick="closeClick()">
+			                <div>
+			                	<center>
+			                		<p>{{station.address}}</p>
+			                		<p>Bikes: <b>{{station.available_bikes}}</p></b>
+			                	</center>
+			                </div>
+			            </ui-gmap-window>
+					</ui-gmap-marker>
+
+					<ui-gmap-marker idKey='000' coords='userMarker.coords' icon='userIcon'>
+						<ui-gmap-window options="windowOptions" closeClick="closeClick()">
+			                <div><center><p>Your Location</p></center></div>
+			            </ui-gmap-window>
+					</ui-gmap-marker>
+				</ui-gmap-google-map>
+			</div>
+		</div>
+	</div>
+</section>

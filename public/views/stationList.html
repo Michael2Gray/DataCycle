@@ -1,0 +1,72 @@
+<section class="mainWrapper">
+  
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+      <section id="btn-search">
+        <div><i class="fa fa-search searchIcon"></i><input type="text" class="search rounded" placeholder="Station..." ng-model="query"></div>
+      </section>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="station in stations | filter:query | orderBy:'last_update':true">
+      <section class="panel station">
+        <a href="#/station/{{ station.number }}" class="panel station">
+        <center>
+          <h4>{{ station.address }}</h4>
+          
+          <!--Display if Less then or equal to 5-->
+          <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bikes <= 5">
+            <div class="stationPanelContainer redContainer">
+              <p>Bikes:</p>
+               <h3>{{ station.available_bikes }}</h3>
+            </div>
+          </div>
+          
+          <!--Display if Less then or equal to 15 and greater then 5-->
+          <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bikes <= 15 && station.available_bikes > 5">
+            <div class="stationPanelContainer orangeContainer">
+              <p>Bikes:</p>
+               <h3>{{ station.available_bikes }}</h3>
+            </div>
+          </div>
+          
+          <!--Display if greater then 15-->
+          <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bikes > 15">
+            <div class="stationPanelContainer greenContainer">
+              <p>Bikes:</p>
+               <h3>{{ station.available_bikes }}</h3>
+            </div>
+          </div>
+          
+          <!--Display if Less then or equal to 5-->
+          <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bike_stands <= 5">
+            <div class="stationPanelContainer redContainer">
+              <p>Spaces: </p>
+              <h3>{{ station.available_bike_stands }}</h3>
+            </div>
+          </div>
+          
+          <!--Display if Less then or equal to 15 and greater then 5-->
+          <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bike_stands <= 15 && station.available_bike_stands > 5">
+            <div class="stationPanelContainer orangeContainer">
+              <p>Spaces: </p>
+              <h3>{{ station.available_bike_stands }}</h3>
+            </div>
+          </div>
+          
+          <!--Display if greater then 15-->
+          <div class="stationPanel col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="station.available_bike_stands > 15">
+            <div class="stationPanelContainer greenContainer">
+              <p>Spaces: </p>
+              <h3>{{ station.available_bike_stands }}</h3>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12"><p class="time">Updated: {{ station.last_update | date:"hh:mm:ss a"}}</p></div>
+        </center>
+        </a>
+      </section>
+    </div>
+  </div>
+</section>
+

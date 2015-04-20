@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="dataCycle"><!--Assign the DataCycle Angular Module-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>DataCycle</title>
+
+    <!-- Bootstrap -->
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <!-- NVD3 -->
+    <link href="css/lib/nvd3/nv.d3.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/lib/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
+  
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="js/lib/bootstrap.min.js"></script>
+
+    <!-- Navigation -->
+    <script type="text/javascript" src="js/sideBarToggle.js"></script>
+    
+    <!-- Google Maps API -->
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    
+    <!-- AngularJS -->
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
+    <script src="js/lib/angular/angular-animate.min.js"></script>
+    
+    <!-- Google Maps Driective -->
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/angular/angular-google-maps.min.js"></script>
+    
+    <!-- D3 -->
+    <script src="js/lib/d3/d3.min.js"></script>
+    <script src="js/lib/nvd3/nv.d3.min.js"></script>
+    <script src="js/lib/nvd3/angular-nvd3.min.js"></script>
+    
+    <!-- App & Controllers -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers/stationList.js"></script>
+    <script type="text/javascript" src="js/controllers/station.js"></script>
+    <script type="text/javascript" src="js/controllers/analyticsList.js"></script>
+    <script type="text/javascript" src="js/controllers/analytics.js"></script>
+
+  </head>
+  <body>
+    <section id="container">
+      
+      <!-- START HEADER -->
+      <header class="header fixed-top clearfix" ng-include="'views/header.html'">
+      </header>
+      <!-- END HEADER -->
+
+      <!-- START NAVIGATION -->
+      <aside ng-include="'views/navigation.html'">
+      </aside>
+      <!-- END NAVIGATION -->
+
+      <!-- START MAIN CONTENT -->
+      <section ng-view id="mainContent" class="moveLeft reveal-animation">
+      </section>
+      <!-- END MAIN CONTENT -->
+    
+    </section>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<div class="row">
+  <section class="mainWrapper at-view-emerge at-view-scale-out">
+  	<div class="col-md-4 col-md-offset-4"><center><h1 class="chartHeading">{{ stationAddress }}</h1></center></div>
+      
+    	<div class="col-md-12">
+    		<div class="areaChartContainer">
+    			<h3 class="areaChartHeading">Bike Availibility</h3>
+    			<nvd3 options="areaChartOptions" data="areaChartData"></nvd3>
+    		</div>
+    	</div>
+    	
+      <div class="col-md-4">
+        <center><h3 class="pieHeading">Average Total Availability</h3></center>
+        
+        <div class="pieChartContainer">
+          <nvd3 options="totalPieChartOptions" data="totalPieChartData"></nvd3>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+  			<center><h3 class="pieHeading">Average Weekend Availability</h3></center>
+        
+        <div class="pieChartContainer">
+          <nvd3 options="weekendPieChartOptions" data="weekendPieChartData"></nvd3>
+        </div>
+      </div>
+
+  		<div class="col-md-4">
+  			<center><h3 class="pieHeading">Average Week Day Availability</h3></center>
+  		
+        <div class="pieChartContainer">
+          <nvd3 options="weekDayPieChartOptions" data="weekDayPieChartData"></nvd3>
+        </div>
+  		</div>
+  </section>
+</div>
